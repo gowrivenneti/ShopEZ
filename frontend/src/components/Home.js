@@ -31,7 +31,7 @@ function Home() {
         <div className="bg-gray-900 py-16">
           <div className="container mx-auto px-4">
             <h1 className="text-3xl md:text-5xl text-white font-bold text-center mb-8">
-              Welcome to SmartShop
+              Welcome to ShopEZ
             </h1>
 
             <p className="text-xl md:text-2xl text-white text-center mb-12">

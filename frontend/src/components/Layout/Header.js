@@ -13,22 +13,11 @@ import DetailsUser from './DetailsUser';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { useState } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-
-
-
-
-
 function Header({isAuthenticated, user  }  ) {
 
      const dispatch = useDispatch()
 
     const { cartItems } = useSelector(state => state.cart)
-
-
-
-  
-
-  
 
   const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -38,10 +27,6 @@ function Header({isAuthenticated, user  }  ) {
     padding: '0 4px',
   },
 }));
-  
-
-
-
   return (
   // <div className='bg-[#24292e]'>
         <nav className="sticky top-0 z-10 bg-white">
