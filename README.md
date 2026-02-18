@@ -64,6 +64,17 @@ Images are uploaded using Cloudinary.
 
 ---
 
+📸 Screenshots
+
+<img width="1918" height="1122" alt="Screenshot 2026-02-19 000842" src="https://github.com/user-attachments/assets/388ccc22-c250-4ec2-a691-ae3023aa9248" />
+
+<img width="1919" height="995" alt="image" src="https://github.com/user-attachments/assets/070224f7-7a83-4079-9db0-6351e4044025" />
+
+<img width="1919" height="998" alt="image" src="https://github.com/user-attachments/assets/aefb1f07-ba6c-4ada-9b81-808e149ca0b0" />
+
+<img width="1919" height="994" alt="image" src="https://github.com/user-attachments/assets/941bb930-3659-4fe2-b0a4-fc064625a887" />
+
+
 ## 🛠 Installation Guide
 
 ### 1️⃣ Clone the repository
@@ -129,3 +140,4 @@ git commit -m "Updated README to ShopEZ"
 git push
 
 **Happy Shopping!**
+
