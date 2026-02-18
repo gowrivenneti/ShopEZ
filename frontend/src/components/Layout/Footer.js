@@ -8,9 +8,7 @@ function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <Link className="text-white text-lg font-semibold mb-4 cursor-pointer">About Us</Link>
-            <p className="text-gray-400 cursor-pointer">Welcome to 
-
- our e-commerce store, we aim to bring together a curated collection of high-quality products from various categories, including fashion, electronics, home decor, and more. Our team handpicks each item, ensuring that it meets our strict standards of quality, style, and functionality.</p>
+            <p className="text-gray-400 cursor-pointer">Welcome to our e-commerce store, we aim to bring together a curated collection of high-quality products from various categories, including fashion, electronics, home decor, and more. Our team handpicks each item, ensuring that it meets our strict standards of quality, style, and functionality.</p>
           </div>
           <div>
             <h2 className="text-white text-lg font-semibold mb-4 cursor-pointer">Categories</h2>
@@ -42,7 +40,7 @@ function Footer() {
       </div>
       <div className="bg-gray-800 py-4">
         <div className="container mx-auto px-4">
-          <p className="text-center text-gray-400">© 2023 SmartShop. All rights reserved.</p>
+          <p className="text-center text-gray-400">© 2026 ShopEZ. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -109,7 +109,7 @@ function ProductDetails() {
   useEffect(() => {
 
     if(error){
-      return alert.error(error)
+      alert.error(error)
     }
 
     if(reviewError){

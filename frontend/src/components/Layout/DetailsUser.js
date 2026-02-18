@@ -21,12 +21,8 @@ import { useAlert } from 'react-alert';
 import { logout } from '../../actions/userAction';
 import Backdrop from '@mui/material/Backdrop';
 
-
-
 function DetailsUser({user}) {
-
   const alert = useAlert()
-
      const [anchorEl, setAnchorEl] = useState(null);
      const open = Boolean(anchorEl);
      const handleClick = (event) => {
@@ -35,21 +31,12 @@ function DetailsUser({user}) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   const dispatch = useDispatch()
-
-
   const handlelogoutuser=()=>{
     dispatch(logout())
     alert.success('LogOut successfully')
   }
-
-
-  return (<>
-
-    
-     
-     
+ return (<>
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}
@@ -60,7 +47,11 @@ function DetailsUser({user}) {
             aria-expanded={open ? 'true' : undefined}
           >
             
-            <Avatar alt={user.name} src={user.avatar.url}  />
+            <Avatar
+  alt={user?.name || "User"}
+  src={user?.avatar?.url || "https://via.placeholder.com/150"}
+/>
+
           </IconButton>
         </Tooltip>
       
@@ -115,7 +106,7 @@ function DetailsUser({user}) {
         </Link>
 
         <Divider />
-    {  user.role==="admin"? 
+    {  user?.role==="admin"? 
       <Link to="/dashboard">
      <MenuItem onClick={handleClose}>
           <ListItemIcon>

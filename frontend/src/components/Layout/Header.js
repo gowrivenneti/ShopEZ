@@ -51,7 +51,7 @@ function Header({isAuthenticated, user  }  ) {
                 <div>
               <h3 className='cursor-pointer flex text-[#fff]  font-serif md:text-3xl text-xl  '>
             <img className='md:w-10 md:h-10 w-7  h-7 mr-1 justify-center' src="https://cdn-icons-png.flaticon.com/512/9149/9149134.png" alt="" />
-                 SmartShop
+                 ShopEZ
               </h3>
 
                 </div>

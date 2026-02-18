@@ -28,7 +28,7 @@ console.log(searchProducts)
     useEffect(() => {
          
         if (error) {
-            return alert.error(error);
+            alert.error(error);
         }
         
         dispatch(getProducts(keyword,page, price, category, ratings))

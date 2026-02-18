@@ -74,7 +74,7 @@ function UserUpdateProfile({user}) {
   useEffect(() => {
 
     if(error){
-      return alert.error(error)
+     alert.error(error)
     }
 
     if(isUpdated){

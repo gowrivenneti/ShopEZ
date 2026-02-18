@@ -30,6 +30,8 @@ import Dashboard from './components/Admin/Dashboard';
 import Productlist from './components/Admin/Productlist';
 import Newproduct from './components/Admin/Newproduct';
 import Updateproduct from './components/Admin/Updateproduct';
+import ProtectedRoute from "./components/ProtectedRoute";
+
 
 function App() {
 
@@ -38,13 +40,22 @@ const {isAuthenticated,user,loading  } = useSelector(state => state.user)
 
 const [stripeApiKey,setStripeApiKey] = useState('')
 
-async function getStripeApiKey(){
-  const {data} = await axios.get(`${baseUrl}/api/v1/stripeapi`,{withCredentials:true })
+async function getStripeApiKey() {
+  try {
+    const { data } = await axios.get(
+      `${baseUrl}/api/v1/stripeapi`,
+      { withCredentials: true }
+    );
 
+    if (data?.stripeApiKey) {
+      setStripeApiKey(data.stripeApiKey);
+    }
 
-  setStripeApiKey(data.stripeApiKey)
- 
+  } catch (error) {
+    console.log("Stripe disabled (not logged in)");
+  }
 }
+
 
 
   useEffect(() => {
@@ -56,7 +67,7 @@ async function getStripeApiKey(){
   }, [])
  
   return (
-    <div classname="">
+    <div className="">
        <Router>
          <Header  isAuthenticated={isAuthenticated}  user={user} />
 
@@ -89,13 +100,16 @@ async function getStripeApiKey(){
               isAuthenticated && <Route path="/order/confirm" element={<Confirmorder/>}/>
             }
 
-
-            {
-
-              isAuthenticated && 
-
-              <Route path="/payment" element={<Elements stripe={loadStripe(stripeApiKey)}><Payment stripeApiKey={stripeApiKey}/></Elements>}/>
-            }
+<Route
+  path="/payment"
+  element={
+    <ProtectedRoute>
+      <Elements stripe={loadStripe(stripeApiKey)}>
+        <Payment stripeApiKey={stripeApiKey} />
+      </Elements>
+    </ProtectedRoute>
+  }
+/>
 
             {
               isAuthenticated && <Route path="/success" element={<Successorder/>}/>

@@ -1,23 +1,26 @@
-const app = require('./app');
+process.on("unhandledRejection", (err) => {
+  console.log("UNHANDLED REJECTION 💥:", err);
+  process.exit(1);
+});
+
 const dotenv = require('dotenv');
-const connectDB = require('./config/db')
-const cloudinary = require('cloudinary')
+const path = require('path');
+dotenv.config({ path: path.join(__dirname, 'config', '.env') }); // ✅ LOAD .env correctly
 
-//Configuration 
-dotenv.config({path:'./config/.env'}) // it helps to use environment variables or load the environment variable
+const app = require('./app');
+const connectDB = require('./config/db');
+const cloudinary = require('cloudinary');
 
-//connection with database
+// Connect DB
 connectDB();
 
-//cloudinary configuration
+// Cloudinary config
 cloudinary.config({
-    cloud_name:process.env.CLOUDINARY_CLOUD_NAME,
-    api_key:process.env.CLOUDINARY_API_KEY,
-    api_secret:process.env.CLOUDINARY_API_SECRET
-})
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
-
-
-app.listen(process.env.PORT,()=>{
-    console.log(`Server is listening on port ${process.env.PORT}...`)
-})
+app.listen(process.env.PORT, () => {
+  console.log(`Server is listening on port ${process.env.PORT}...`);
+});

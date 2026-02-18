@@ -1,9 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const {auth} = require('../middleware/auth')
-const {processPayment,sendStripeApiKey} = require('../controller/PaymentController')
+const { auth } = require("../middleware/auth");
+const { processPayment, sendStripeApiKey } = require("../controller/paymentController");
 
-router.route('/payment/process').post(auth,processPayment)
-router.route('/stripeapi').get(auth,sendStripeApiKey)
+// payment requires login
+router.route("/payment/process").post(auth, processPayment);
+
+// public key — no auth needed
+router.route("/stripeapi").get(sendStripeApiKey);
 
 module.exports = router;

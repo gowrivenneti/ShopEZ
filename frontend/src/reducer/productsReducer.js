@@ -6,36 +6,38 @@ UPDATE_PRODUCT_FAIL,UPDATE_PRODUCT_REQUEST,UPDATE_PRODUCT_RESET,UPDATE_PRODUCT_S
 
 
 export const productsReducer = (state = { products: [] }, action) => {
+  switch (action.type) {
+    case ALL_PRODUCTS_REQUEST:
+      return {
+        loading: true,
+        products: []
+      };
 
-    switch (action.type) {
+    case ALL_PRODUCTS_SUCCESS:
+      return {
+        loading: false,
+        products: action.payload.products,
+        productsCount: action.payload.productsCount,
+        limit: action.payload.limit
+      };
 
-        case ALL_PRODUCTS_REQUEST:
-            return {
-                loading: true,
-                products: []
-            }
-        case ALL_PRODUCTS_SUCCESS:
-            return {
-                loading: false,
-                products: action.payload.results,
-                productsCount: action.payload.totalResults,
-                searchProducts: action.payload.Searchproducts,
-                limit: action.payload.limit,
-            }
-        case ALL_PRODUCTS_FAIL:
-            return {
-                loading: false,
-                error: action.payload
-            }
-        case CLEAR_ERRORS:
-            return {
-                ...state,
-                error: null
-            }
-        default:
-            return state
-    }
-}
+    case ALL_PRODUCTS_FAIL:
+      return {
+        loading: false,
+        error: action.payload
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null
+      };
+
+    default:
+      return state;
+  }
+};
+
 
 export const productDetailsReducer = (state = { product: {} }, action) => {
 
@@ -246,11 +248,12 @@ export const productUpdateReducer = (state = { product: {} }, action) => {
             }
 
         case UPDATE_PRODUCT_SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                isUpdated: action.payload
-            }
+  return {
+    ...state,
+    loading: false,
+    isUpdated: action.payload,
+  };
+
 
         case UPDATE_PRODUCT_FAIL:
             return {

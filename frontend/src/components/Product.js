@@ -21,7 +21,8 @@ function Product({id,name,price,image,rating,reviewsCount,ratings}) {
         
     <div key={id} className="bg-white h-full min-height: 20em   rounded-lg shadow-lg  overflow-hidden hover:scale-105 transition-transform duration-300">
 
-              <img src={image[0].url} alt={name} className="block mx-auto md:w-[45%] w-[40%]  object-cover rounded-t-lg" />
+              <img src={image?.[0]?.url}
+ alt={name} className="block mx-auto md:w-[45%] w-[40%]  object-cover rounded-t-lg" />
               <div className="p-4">
                 <h3 className="text-lg font-semibold mb-2">{name}</h3>
                 <StarRatingComponent
